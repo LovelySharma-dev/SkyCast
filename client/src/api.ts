@@ -1,0 +1,17 @@
+export async function getWeather({
+  lat,
+  lon,
+}: {
+  lat: number
+  lon: number
+}) {
+  const res = await fetch(
+    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto`
+  )
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch weather")
+  }
+
+  return res.json()
+}

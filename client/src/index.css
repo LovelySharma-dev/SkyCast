@@ -1,33 +1,92 @@
 @import "tailwindcss";
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
+  /* Zinc backgrounds */
+  --bg: #09090b;           /* zinc-950 */
+  --card: #18181b;         /* zinc-900 */
+  --card-hover: #27272a;   /* zinc-800 */
+
+  /* Text */
+  --text: #fafafa;         /* zinc-50 */
+  --text-secondary: #a1a1aa; /* zinc-400 */
+  --text-muted: #71717a;   /* zinc-500 */
+
+  /* Borders */
+  --border: #27272a;       /* zinc-800 */
+  --border-hover: #3f3f46; /* zinc-700 */
+
+  /* Main accent */
+  --accent: #38bdf8;
+  --accent-bg: rgba(56, 189, 248, 0.1);
+
+  /* Weather */
+  --sun: #fbbf24;
+  --rain: #38bdf8;
+  --snow: #bae6fd;
+  --storm: #a78bfa;
+  --cloud: #a1a1aa;
+
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    0 10px 30px rgba(0, 0, 0, 0.3);
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --sans:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+
   color: var(--text);
   background: var(--bg);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background: var(--bg);
+  color: var(--text);
+}
+@utility scrollbar-dark {
+  scrollbar-width: thin;
+  scrollbar-color: #52525b #18181b;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #18181b;
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #52525b;
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #71717a;
   }
 }
 
+button,
+input {
+  font: inherit;
+}

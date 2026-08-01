@@ -6,19 +6,20 @@ import HourlyForecast from "./components/cards/HourlyForecast"
 import CurrentWeather from "./components/cards/CurrentWeather"
 import AdditionalInfo from "./components/cards/AdditionalInfo"
 import Map from "./components/Map"
+import { useState } from "react"
+import type { Coords } from "./types"
+
 const App = () => {
-  const {data} = useQuery({
-    queryKey: ['weather', 10, 23],
-    queryFn: () => getWeather({lat: 10, lon: 23})
-  })
+ const [coords, setCoords] = useState<Coords>({lat: 40, lon: 35})
+
   return (
     
     <div className="flex flex-col gap-8">
-      <Map/>
-    <CurrentWeather/>
-    <HourlyForecast/>
-    <DailyForecast/>
-    <AdditionalInfo/>
+      <Map  />
+    <CurrentWeather coords={coords} />
+    <HourlyForecast coords={coords} />
+    <DailyForecast coords={coords} />
+    <AdditionalInfo coords={coords} />
     </div>
     
   )

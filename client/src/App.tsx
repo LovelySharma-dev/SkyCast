@@ -11,11 +11,16 @@ import type { Coords } from "./types"
 
 const App = () => {
  const [coords, setCoords] = useState<Coords>({lat: 40, lon: 35})
+ const [mapType, setMapType] = useState("clouds_new")
+
+ const onMapClick = (lat: number, lon: number) => {
+  setCoords({lat, lon})
+ }
 
   return (
     
     <div className="flex flex-col gap-8">
-      <Map  />
+      <Map coords={coords} onMapClick={onMapClick} mapType={mapType} />
     <CurrentWeather coords={coords} />
     <HourlyForecast coords={coords} />
     <DailyForecast coords={coords} />

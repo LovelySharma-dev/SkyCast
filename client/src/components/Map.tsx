@@ -26,6 +26,7 @@ const {lat, lon} = coords
             width: "1000px",
             height: "400px",
           }}
+          // key={`${coords.lat}, ${coords.lon}`}
         >
           {/* Dark base map */}
           <MapTileLayer />

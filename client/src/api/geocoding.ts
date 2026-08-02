@@ -8,7 +8,7 @@ export async function getGeocode(location: string) {
         format: "json",
     })
 
-    const res = await fetch(`https://geocoding-api-open-meteo.com/v1/search?${params}`)
+    const res = await fetch(`https://geocoding-api.open-meteo.com/v1/search?${params}`)
 
     if(!res.ok){
         throw new Error(`Geocoding API error: ${res.status}`)
